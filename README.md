@@ -3,7 +3,7 @@ Programa para auxiliar no cálculo dos valores que serão carregados na memória
 criar a onda desejada.
 
 Como utilizar:
-  Digite os valores desejados de Frequência, Vmin, Vmáx,resolução da onda gerada e selecione o tipo de onda desejada.
+  Digite os valores desejados de Vmin, Vmáx,resolução da onda gerada e selecione o tipo de onda desejada.
   
 Ondas implementadas na build atual:
   - Quadrada

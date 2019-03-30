@@ -10,7 +10,7 @@ namespace daCalculator8051
     {
         protected internal string WaveType;
         protected internal int waveResolution;
-        protected internal float waveFrequency, waveVmin, waveVmax;
+        protected internal float  waveVmin, waveVmax;
         private double DACResolution = 5.0 / 255.0;
 
 
@@ -25,7 +25,7 @@ namespace daCalculator8051
             string returnString = string.Empty;
             float vRef = waveVmax / 2;
             int i;
-            for (i = 1; i <= waveResolution / 4; i++)
+            for (i = 0; i <= waveResolution / 4; i++)
             {
                 returnString += ((int)((vRef +DACResolution*i)/DACResolution)).ToString("X2");
             }

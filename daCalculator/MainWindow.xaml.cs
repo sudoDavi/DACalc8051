@@ -31,8 +31,7 @@ namespace daCalculator8051
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             wave = new Wave()
-            {
-                waveFrequency = float.Parse(FrequencyTextBox.Text),
+            {            
                 WaveType = WaveformComboBox.Text,
                 waveVmax = float.Parse(VmaxTextBox.Text),
                 waveVmin = float.Parse(VminTextBox.Text),

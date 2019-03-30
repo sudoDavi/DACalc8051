@@ -6,31 +6,26 @@
         xmlns:local="clr-namespace:daCalculator"
         xmlns:local1="clr-namespace:daCalculator8051" x:Name="dacCalculator" x:Class="daCalculator8051.MainWindow"
         mc:Ignorable="d"
-        Title="daCalculator - 8051" Height="262" Width="620" Cursor="Arrow">
+        Title="daCalculator - 8051" Height="262" Width="620" Cursor="Arrow" WindowStartupLocation="CenterScreen">
     <Grid x:Name="Elements" HorizontalAlignment="Left" Height="231" VerticalAlignment="Top" Width="611">
-        <Grid x:Name="DacControls" Margin="10,10,198,10">
+        <Grid x:Name="DacControls" Margin="10,10,237,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="CalculateButton" Content="Calcular" HorizontalAlignment="Left" Margin="117,143,0,0" VerticalAlignment="Top" Width="75" Click="CalculateButton_Click"/>
-            <Grid x:Name="DacResolution" HorizontalAlignment="Left" Height="43" Margin="10,95,0,0" VerticalAlignment="Top" Width="135">
+            <Button x:Name="CalculateButton" Content="Calcular" HorizontalAlignment="Left" Margin="147,167,0,0" VerticalAlignment="Top" Width="75" Click="CalculateButton_Click"/>
+            <Grid x:Name="DacResolution" HorizontalAlignment="Left" Height="64" Margin="0,76,0,0" VerticalAlignment="Top" Width="156">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="36*"/>
+                    <ColumnDefinition Width="38*"/>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="35*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="ResolMaxTextBlock" HorizontalAlignment="Left" Margin="103,17,0,0" TextWrapping="Wrap" Text="255" VerticalAlignment="Top" Height="22" Width="22"/>
-                <TextBlock x:Name="ResolMinTextBlock" HorizontalAlignment="Left" Margin="10,16,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="6"/>
-                <TextBlock x:Name="DacResolTextBlock" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Resolução do DAC" VerticalAlignment="Top" Width="103" Height="16"/>
-                <TextBox x:Name="DacResolTextBox" HorizontalAlignment="Left" Height="23" Margin="32,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Text="255" AutomationProperties.IsColumnHeader="True" ToolTip="0 a 255" />
+                <TextBlock x:Name="ResolMaxTextBlock" Margin="35,29,0,0" TextWrapping="Wrap" Text="255" Grid.Column="2" HorizontalAlignment="Left" Width="22" Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="ResolMinTextBlock" Margin="0,29,35,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Right" Width="6" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="DacResolTextBox" Height="23" Margin="21,28,21,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="255" AutomationProperties.IsColumnHeader="True" ToolTip="0 a 255" Grid.ColumnSpan="2" Grid.Column="1" TextAlignment="Center" />
+                <GroupBox Header="Resolução da Onda" d:IsLocked="True" Grid.ColumnSpan="4"/>
             </Grid>
-            <Grid x:Name="Frequency" HorizontalAlignment="Left" Height="53" Margin="0,10,0,0" VerticalAlignment="Top" Width="169" Visibility="Hidden">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBox x:Name="FrequencyTextBox" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="1" ToolTip="10MHz Máx"  />
-                <GroupBox Header="Frequência da Onda" d:IsLocked="True"/>
-                <TextBlock HorizontalAlignment="Left" Margin="135,21,0,0" TextWrapping="Wrap" Text="MHz" VerticalAlignment="Top" Height="22" Width="27" d:IsLocked="True"/>
-            </Grid>
-            <Grid x:Name="VminVmax" HorizontalAlignment="Left" Height="62" Margin="181,14,0,0" VerticalAlignment="Top" Width="219">
+            <Grid x:Name="VminVmax" HorizontalAlignment="Left" Height="62" Margin="10,14,0,0" VerticalAlignment="Top" Width="219">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -40,18 +35,20 @@
                 <TextBlock x:Name="VTextBlock_Copy" HorizontalAlignment="Left" Margin="163,30,0,0" TextWrapping="Wrap" Text="Vmáx (V)" VerticalAlignment="Top" Width="54" Height="16"/>
                 <GroupBox Header="Tensões da onda" Margin="-5,-4,0,3" d:IsLocked="True"/>
             </Grid>
-            <Grid x:Name="WaveForm" HorizontalAlignment="Left" Height="43" Margin="169,100,0,0" VerticalAlignment="Top" Width="137">
+            <Grid x:Name="WaveForm" HorizontalAlignment="Left" Height="58" Margin="161,82,0,0" VerticalAlignment="Top" Width="201">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="WaveformComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Text="Forma de Onda" IsSynchronizedWithCurrentItem="False" IsEditable="True" IsReadOnly="True">
+                <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0">
                     <ComboBoxItem Content="Quadrada"/>
                     <ComboBoxItem Content="Triangular"/>
-                    <ComboBoxItem Content="Senoidal"/>
-                    <ComboBoxItem Content="SawTooth"/>
+                    <ComboBoxItem Content="WIP Senoidal"/>
+                    <ComboBoxItem Content="WIP SawTooth"/>
                 </ComboBox>
+                <GroupBox Header="Forma de Onda" d:IsLocked="True" Grid.ColumnSpan="2"/>
             </Grid>
         </Grid>
-        <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="190" Margin="433,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" AllowDrop="False" IsTabStop="False"/>
+        <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="201" Margin="404,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" AllowDrop="False" IsTabStop="False" ToolTip="Valores representativos da Onda"/>
     </Grid>
 </Window>

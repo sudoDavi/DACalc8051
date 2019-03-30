@@ -7,13 +7,19 @@ Como utilizar:
   
 Ondas implementadas na build atual:
   - Quadrada
+  
 Ondas a serem implementadas:
   - Triangular
   - Senoidal
   - Sawtooth
+  
 Como utilizar os valores retornados pelo programa:
-  No programa em assembly, utilize a instrução DB (Define Byte), da seguinte maneira: DB valores da memória
+
+  No programa em assembly, utilize a instrução DB (Define Byte), da seguinte maneira: 
+  DB valores da memória
+  
   Ex: DB FF00H
+  
   Essa instrução deve ser localizada em uma posição com pelo menos 256B livres no endereçamento pois a instrução DB carrega os
   valores de byte em byte incrementando a posição na memória.
   

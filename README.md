@@ -7,9 +7,10 @@ Como utilizar:
   
 Ondas implementadas na build atual:
   - Quadrada
+  - Triangular
   
 Ondas a serem implementadas:
-  - Triangular
+  
   - Senoidal
   - Sawtooth
   

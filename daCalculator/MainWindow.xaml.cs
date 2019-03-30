@@ -42,6 +42,8 @@ namespace daCalculator8051
             {
                 DacValuesTextBox.Text = wave.Square();
             }
+            if (wave.WaveType == "Triangular")
+                DacValuesTextBox.Text = wave.Triangle();
             
         }
     }

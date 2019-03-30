@@ -1,9 +1,10 @@
-﻿<Window x:Name="dacCalculator" x:Class="daCalculator8051.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:daCalculator"
+        xmlns:local1="clr-namespace:daCalculator8051" x:Name="dacCalculator" x:Class="daCalculator8051.MainWindow"
         mc:Ignorable="d"
         Title="daCalculator - 8051" Height="262" Width="620" Cursor="Arrow">
     <Grid x:Name="Elements" HorizontalAlignment="Left" Height="231" VerticalAlignment="Top" Width="611">
@@ -21,7 +22,7 @@
                 <TextBlock x:Name="DacResolTextBlock" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Resolução do DAC" VerticalAlignment="Top" Width="103" Height="16"/>
                 <TextBox x:Name="DacResolTextBox" HorizontalAlignment="Left" Height="23" Margin="32,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Text="255" AutomationProperties.IsColumnHeader="True" ToolTip="0 a 255" />
             </Grid>
-            <Grid x:Name="Frequency" HorizontalAlignment="Left" Height="53" Margin="0,10,0,0" VerticalAlignment="Top" Width="169">
+            <Grid x:Name="Frequency" HorizontalAlignment="Left" Height="53" Margin="0,10,0,0" VerticalAlignment="Top" Width="169" Visibility="Hidden">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -51,6 +52,6 @@
                 </ComboBox>
             </Grid>
         </Grid>
-        <TextBox x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="190" Margin="433,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" AllowDrop="False" IsTabStop="False" Focusable="False"/>
+        <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="190" Margin="433,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" AllowDrop="False" IsTabStop="False"/>
     </Grid>
 </Window>

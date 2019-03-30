@@ -16,7 +16,7 @@ namespace daCalculator8051
         
          protected internal string Square()
         {
-            return ((int)(waveVmax / DACResolution)).ToString("X2") + ((int)(waveVmin / DACResolution)).ToString("X2");
+            return ((int)(waveVmax / DACResolution)).ToString("X2") + ((int)(waveVmin / DACResolution)).ToString("X2")+"H";
 
         }
 

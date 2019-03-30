@@ -17,12 +17,16 @@ Como utilizar os valores retornados pelo programa:
   Essa instrução deve ser localizada em uma posição com pelo menos 256B livres no endereçamento pois a instrução DB carrega os
   valores de byte em byte incrementando a posição na memória.
   
-  Ex:                 
+  Ex: 
+  
       ORG 5100H        
         DB FF00H       
       END
+  
   Ponto de vista da memória:
-    5100H -> 0FFH
+  
+    5100H -> 0FFH    
     5101H -> 00H
-  Assim para utilizar pode se usar um apontador para a tabela na memória externa(ou interna) dos valores a serem carregados no DAC
+  
+  Assim para utilizar pode se usar um apontador para a tabela na memória externa(ou interna) dos valores a serem carregados no DAC.
       

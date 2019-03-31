@@ -35,7 +35,8 @@ namespace daCalculator8051
                 WaveType = WaveformComboBox.Text,
                 waveVmax = float.Parse(VmaxTextBox.Text),
                 waveVmin = float.Parse(VminTextBox.Text),
-                waveResolution = int.Parse(DacResolTextBox.Text)
+                waveResolution = int.Parse(DacResolTextBox.Text),
+                waveFrequency = float.Parse(FrequencyTextBox.Text)
             };
             if(wave.WaveType == "Quadrada")
             {
@@ -43,7 +44,16 @@ namespace daCalculator8051
             }
             if (wave.WaveType == "Triangular")
                 DacValuesTextBox.Text = wave.Triangle();
-            
+            if (wave.WaveType == "Senoidal")
+                DacValuesTextBox.Text = wave.Sin();
+        }
+
+        private void WaveformComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (WaveformComboBox.Text == "Senoidal")
+                FrequencyGrid.Visibility = Visibility.Visible;
+            else
+                FrequencyGrid.Visibility = Visibility.Hidden;
         }
     }
 }

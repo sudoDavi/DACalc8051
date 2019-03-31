@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:daCalculator"
         xmlns:local1="clr-namespace:daCalculator8051" x:Name="dacCalculator" x:Class="daCalculator8051.MainWindow"
         mc:Ignorable="d"
-        Title="daCalculator - 8051" Height="262" Width="620" Cursor="Arrow" WindowStartupLocation="CenterScreen">
-    <Grid x:Name="Elements" HorizontalAlignment="Left" Height="231" VerticalAlignment="Top" Width="611">
-        <Grid x:Name="DacControls" Margin="10,10,237,10">
+        Title="daCalculator - 8051" Height="262" Width="620" Cursor="Arrow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="daCalculator8b.ico">
+    <Grid x:Name="Elements" Margin="0,0,1,1">
+        <Grid x:Name="DacControls" Margin="10,10,0,10" HorizontalAlignment="Left" Width="364">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -40,7 +40,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0">
+                <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0" SelectionChanged="WaveformComboBox_SelectionChanged">
                     <ComboBoxItem Content="Quadrada"/>
                     <ComboBoxItem Content="Triangular"/>
                     <ComboBoxItem Content="Senoidal"/>
@@ -48,12 +48,12 @@
                 </ComboBox>
                 <GroupBox Header="Forma de Onda" d:IsLocked="True" Grid.ColumnSpan="2"/>
             </Grid>
-            <Grid x:Name="FrequencyGrid" HorizontalAlignment="Left" Height="66" Margin="234,10,0,0" VerticalAlignment="Top" Width="120">
+            <Grid x:Name="FrequencyGrid" HorizontalAlignment="Left" Height="66" Margin="234,10,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
                 <GroupBox x:Name="FrequencyGroupBox" Header="Frequência" d:IsLocked="True"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,24,0,0" TextWrapping="Wrap" Text="500" VerticalAlignment="Top" Width="81" TextAlignment="Right"/>
+                <TextBox x:Name="FrequencyTextBox" HorizontalAlignment="Left" Height="23" Margin="10,24,0,0" TextWrapping="Wrap" Text="500" VerticalAlignment="Top" Width="81" TextAlignment="Right"/>
                 <TextBlock HorizontalAlignment="Left" Margin="96,24,0,0" TextWrapping="Wrap" Text="Hz" VerticalAlignment="Top" Height="23" d:IsLocked="True"/>
             </Grid>
         </Grid>
-        <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="201" Margin="404,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" AllowDrop="False" IsTabStop="False" ToolTip="Valores representativos da Onda"/>
+        <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" Margin="404,10,10,20" TextWrapping="Wrap" AllowDrop="False" IsTabStop="False" ToolTip="Valores representativos da Onda"/>
     </Grid>
 </Window>

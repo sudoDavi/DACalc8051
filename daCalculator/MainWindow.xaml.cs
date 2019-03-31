@@ -48,12 +48,6 @@ namespace daCalculator8051
                 DacValuesTextBox.Text = wave.Sin();
         }
 
-        private void WaveformComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (WaveformComboBox.Text == "Senoidal")
-                FrequencyGrid.Visibility = Visibility.Visible;
-            else
-                FrequencyGrid.Visibility = Visibility.Hidden;
-        }
+        
     }
 }

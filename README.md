@@ -1,4 +1,4 @@
-# daCalculator8051
+# daCalculator8051 - WIP
 Programa para auxiliar no cálculo dos valores que serão carregados na memória do 8051 para serem passados para o DAC, para o mesmo
 criar a onda desejada.
 
@@ -16,7 +16,7 @@ Ondas a serem implementadas:
   
 Como utilizar os valores retornados pelo programa:
 
-  No programa em assembly, utilize a instrução DB (Define Byte), da seguinte maneira: 
+No programa em assembly, utilize a instrução DB (Define Byte), da seguinte maneira: 
   DB valores da memória
   
   Ex: DB FF00H

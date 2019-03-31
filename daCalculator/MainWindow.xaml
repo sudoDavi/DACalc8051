@@ -40,7 +40,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0" SelectionChanged="WaveformComboBox_SelectionChanged" >
+                <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0" >
                     <ComboBoxItem Content="Quadrada"/>
                     <ComboBoxItem Content="Triangular"/>
                     <ComboBoxItem Content="Senoidal"/>

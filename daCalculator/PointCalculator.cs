@@ -38,7 +38,6 @@ namespace daCalculator8051
                 returnString += ((int)((waveVmin + DACResolution * i) / DACResolution)).ToString("X2");
             }
 
-
             return returnString + "H";
         }
 

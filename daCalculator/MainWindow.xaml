@@ -43,10 +43,15 @@
                 <ComboBox x:Name="WaveformComboBox" Margin="27,21,31,0" Text="Forma de Onda" IsSynchronizedWithCurrentItem="True" Grid.ColumnSpan="2" Height="29" VerticalAlignment="Top" SelectedIndex="0">
                     <ComboBoxItem Content="Quadrada"/>
                     <ComboBoxItem Content="Triangular"/>
-                    <ComboBoxItem Content="WIP Senoidal"/>
+                    <ComboBoxItem Content="Senoidal"/>
                     <ComboBoxItem Content="WIP SawTooth"/>
                 </ComboBox>
                 <GroupBox Header="Forma de Onda" d:IsLocked="True" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid x:Name="FrequencyGrid" HorizontalAlignment="Left" Height="66" Margin="234,10,0,0" VerticalAlignment="Top" Width="120">
+                <GroupBox x:Name="FrequencyGroupBox" Header="Frequência" d:IsLocked="True"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,24,0,0" TextWrapping="Wrap" Text="500" VerticalAlignment="Top" Width="81" TextAlignment="Right"/>
+                <TextBlock HorizontalAlignment="Left" Margin="96,24,0,0" TextWrapping="Wrap" Text="Hz" VerticalAlignment="Top" Height="23" d:IsLocked="True"/>
             </Grid>
         </Grid>
         <TextBox IsReadOnly="True" x:Name="DacValuesTextBox" HorizontalAlignment="Left" Height="201" Margin="404,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" AllowDrop="False" IsTabStop="False" ToolTip="Valores representativos da Onda"/>

@@ -24,22 +24,22 @@ namespace daCalculator8051
         protected internal string Triangle()
         {
             string returnString = string.Empty;
-            float vRef = waveVmax / 2;
+            float vStp = (waveVmax-waveVmin)/(waveResolution/2);
             int i;
-            for (i = 0; i <= waveResolution / 4; i++)
+            for (i = 0; i <= waveResolution / 2; i++)
             {
-                returnString += ((int)((vRef + DACResolution * i) / DACResolution)).ToString("X2");
+                returnString += "0" + ((int)(waveVmin + vStp*i/ DACResolution)).ToString("X2") + "H, ";
             }
-            for (i = 1; i <= ((3 * waveResolution) / 4) - waveResolution / 4; i++)
+            
+            vStp = (waveVmin - WaveVmax)/(waveResolution/2);
+            
+            for (i = 1; i < waveResolution / 2; i++)
             {
-                returnString += ((int)((waveVmax - DACResolution * i) / DACResolution)).ToString("X2");
+                returnString += "0" + ((int)(waveVmax + vStp*i / DACResolution)).ToString("X2") + "H, ";
             }
-            for (i = 1; i <= waveResolution - (3 * waveResolution) / 4; i++)
-            {
-                returnString += ((int)((waveVmin + DACResolution * i) / DACResolution)).ToString("X2");
-            }
+            
 
-            return returnString + "H";
+            return "DB " + returnString ;
         }
 
         protected internal string Sin()

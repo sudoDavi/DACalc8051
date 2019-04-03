@@ -10,54 +10,51 @@ namespace daCalculator8051
     {
         protected internal string WaveType;
         protected internal int waveResolution;
-        protected internal float waveFrequency, waveVmin, waveVmax;
+        protected internal float waveVmin, waveVmax;
         private double DACResolution = 5.0 / 255.0;
-        private double timeStep;
+        
 
 
         protected internal string Square()
         {
-            return ((int)(waveVmax / DACResolution)).ToString("X2") + ((int)(waveVmin / DACResolution)).ToString("X2") + "H";
+            return "DB 0" + ((int)(waveVmax / DACResolution)).ToString("X2") + "H, 0" + ((int)(waveVmin / DACResolution)).ToString("X2") + "H";
 
         }
 
         protected internal string Triangle()
         {
             string returnString = string.Empty;
-            float vRef = waveVmax / 2;
+            float vRef = (waveVmax - waveVmin) / (waveResolution / 2) ;
             int i;
-            for (i = 0; i <= waveResolution / 4; i++)
+
+            for (i = 0; i <= waveResolution / 2; i++)
             {
-                returnString += ((int)((vRef + DACResolution * i) / DACResolution)).ToString("X2");
-            }
-            for (i = 1; i <= ((3 * waveResolution) / 4) - waveResolution / 4; i++)
-            {
-                returnString += ((int)((waveVmax - DACResolution * i) / DACResolution)).ToString("X2");
-            }
-            for (i = 1; i <= waveResolution - (3 * waveResolution) / 4; i++)
-            {
-                returnString += ((int)((waveVmin + DACResolution * i) / DACResolution)).ToString("X2");
+                returnString += "0" + ((int)((waveVmin + vRef * i) / DACResolution)).ToString("X2") + "H, ";
             }
 
-            return returnString + "H";
+            vRef = (waveVmin - waveVmax) / (waveResolution / 2) ;
+
+            for (i = 1; i <= waveResolution / 2; i++)
+            {
+                returnString += "0" + ((int)((waveVmax + vRef * i) / DACResolution)).ToString("X2") + "H, ";
+            }
+
+            return "DB " + returnString.Remove(returnString.Length - 2);
         }
 
         protected internal string Sin()
         {
             string returnString = string.Empty;
-            timeStep = (1 / waveFrequency) / waveResolution;
-            double omega = 2 * Math.PI * waveFrequency;
             float vRef = waveVmax / 2;
             int i;
-            for (i = 0; i <= waveResolution / 2; i++)
+
+            for (i = 0; i <= waveResolution; i++)
             {
-                returnString += ((int)(vRef + vRef * Math.Sin(omega * timeStep * i))).ToString("X2");
+                int dacValue = (int)(((waveVmax / 2) + waveVmax / 2 * Math.Sin((360 / waveResolution * i) * Math.PI / 180)) / DACResolution);
+                returnString += "0" + dacValue.ToString("X2") + "H, ";
             }
-            for (i = 1; i <= waveResolution - waveResolution / 2; i++)
-            {
-                returnString += ((int)(vRef - vRef * Math.Sin(omega * timeStep * i))).ToString("X2");
-            }
-            return returnString+"H";
+
+            return "DB " + returnString.Remove(returnString.Length - 2);
         }
 
     }

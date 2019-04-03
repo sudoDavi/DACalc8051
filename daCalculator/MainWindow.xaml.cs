@@ -36,7 +36,7 @@ namespace daCalculator8051
                 waveVmax = float.Parse(VmaxTextBox.Text),
                 waveVmin = float.Parse(VminTextBox.Text),
                 waveResolution = int.Parse(DacResolTextBox.Text),
-                waveFrequency = float.Parse(FrequencyTextBox.Text)
+                
             };
             if(wave.WaveType == "Quadrada")
             {
